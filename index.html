@@ -1,57 +1,54 @@
 <html>
-
 <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title> Meu primeiro HTML</title>
 </head>
 
 <body>
     <h1> Cadastro Usuário</h1>
-    <form>
-        <label>Nome:</label>
-        <input type="text" />
-        <br>
+    <div class="displayForms">
 
-        <label>Sobrenome:</label>
-        <input type="text" />
-        <br>
-
-        <label>Data de nascimento:</label>
-        <input type="date" />
-        <br>
-
-        <label>CPF:</label>
-        <input type="text" maxlength="14" inputmode="numeric" placeholder="000.000.000-00" />
-        <br>
-
-        <label>RG:</label>
-        <input type="text" maxlength="12" inputmode="numeric" placeholder="00.000.000-0" />
-        <br>
-
-        <label>E-mail:</label>
-        <input type="email" />
-        <br>
-
-        <label>Telefone:</label>
-        <input type="tel" />  <!-- aqui troquei type="number" para type="tel" -->
-        <br>
-
-        <label>Estado:</label>
-        <input type="text" maxlength="2" placeholder="UF (ex: SP)" /> <!-- geralmente sigla com 2 letras -->
-        <br>
-
-        <label>Bairro:</label>
-        <input type="text" />
-        <br>
-
-        <label>Cidade:</label>
-        <input type="text" />
-        <br>
-
-        <button>Salvar</button>
-        <br>
-
-        <img src="image/image.png"/>
+        <form class="form">
+            <input class="dados" type="text" placeholder="Nome"/>
+            
+            <input class="dados" type="text" placeholder="Sobrenome"/>
+            
+            <input class="dados" type="email" placeholder="E-mail"/>
+            
+            <input class="dados" type="text" placeholder="Matricula"/>
+            
+            <input class="dados" type="text" placeholder="Usuário"/>
+            
+            <input class="dados" type="password" placeholder="Senha"/>
+            
+            <input class="dados" type="password" placeholder="Confirmar Senha"/>
+            
+            <div>
+                <button class="botaoSalvar">Salvar</button>
+        </div>        
+        <!-- <img src="image/image.png"/> -->
     </form>
+    <form class="form">
+        <input class="dados" type="text" placeholder="Nome"/>
+        
+        <input class="dados" type="text" placeholder="Sobrenome"/>
+        
+        <input class="dados" type="email" placeholder="E-mail"/>
+        
+        <input class="dados" type="text" placeholder="Matricula"/>
+        
+        <input class="dados" type="text" placeholder="Usuário"/>
+        
+        <input class="dados" type="password" placeholder="Senha"/>
+        
+        <input class="dados" type="password" placeholder="Confirmar Senha"/>
+        
+        <div>
+            <button class="botaoSalvar">Salvar</button>
+        </div>        
+        <!-- <img src="image/image.png"/> -->
+    </form>
+</div>
 </body>
 
 
