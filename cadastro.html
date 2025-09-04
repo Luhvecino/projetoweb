@@ -1,0 +1,95 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Cadastro</title>
+    <script>        
+        function validarFormulario(){                
+            var inputNome = document.getElementById("nome");
+            var inputSobrenome = document.getElementById("sobrenome");
+            var inputEmail = document.getElementById("email");
+            var inputMatricula = document.getElementById("matricula");
+            var inputUsuario = document.getElementById("usuario");
+            var inputSenha = document.getElementById("senha");
+            var inputRepetirSenha = document.getElementById("repetirsenha");
+            var labelMensagens = document.getElementById("massage")
+            if(inputNome.value == ''){
+                labelMensagens.innerHTML = 'campo nome precisa ser preenchido';
+                return;
+            }else{
+                labelMensagens.innerHTML = "";
+            }
+            if(inputSobrenome.value == ''){
+                labelMensagens.innerHTML = 'campo sobrenome precisa ser preenchido';
+                return;
+            }else{
+                labelMensagens.innerHTML = "";
+            }
+            if(inputEmail.value == ''){
+                labelMensagens.innerHTML = 'campo email precisa ser preenchido';
+                return;
+            }else{
+                labelMensagens.innerHTML = "";
+            }
+            if(inputMatricula.value == ''){
+                labelMensagens.innerHTML = 'campo matricula precisa ser preenchido';
+                return;
+            }else{
+                labelMensagens.innerHTML = "";
+            }
+            if(inputUsuario.value == ''){
+                labelMensagens.innerHTML = 'campo usuario precisa ser preenchido';
+                return;
+            }else{
+                labelMensagens.innerHTML = "";
+            }
+            if(inputSenha.value == ''){
+                labelMensagens.innerHTML = 'campo senha precisa ser preenchido';
+                return;
+            }else{
+                labelMensagens.innerHTML = "";
+            }
+            if(inputRepetirSenha.value == ''){
+                labelMensagens.innerHTML = 'campo confirmar senha precisa ser preenchido';
+                return;
+            }else{
+                labelMensagens.innerHTML = "";
+            }
+            if(inputSenha.value != inputRepetirSenha.value){
+                labelMensagens.innerHTML = 'As senhas precisam ser iguais';
+                return;
+            }else{
+                labelMensagens.innerHTML = "";
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: center;">
+    
+        <div class="divForm">
+            
+            <form class="form">
+                <h1> Cadastro Usuário</h1>
+                <input id="nome" class="dados" type="text" placeholder="Nome"/>            
+                <input id="sobrenome" class="dados" type="text" placeholder="Sobrenome"/>            
+                <input id="email" class="dados" type="email" placeholder="E-mail"/>            
+                <input id="matricula" class="dados" type="text" placeholder="Matricula"/>            
+                <input id="usuario" class="dados" type="text" placeholder="Usuário"/>            
+                <input id="senha" class="dados" type="password" placeholder="Senha"/>            
+                <input id="repetirsenha" class="dados" type="password" placeholder="Confirmar Senha"/>            
+                <label id="massage" type="text" style="color: red; font-size: 12px;"></label>
+                        
+                <div>
+                    <button type="button" class="botaoSalvar"
+                        onclick="validarFormulario()">Salvar</button>
+                </div>        
+                <!-- <img src="image/image.png"/> -->
+            </form>
+    </div>
+    </div>
+</body>
+
+
+</html>

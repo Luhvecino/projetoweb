@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script>        
+            function validarFormulario(){                
+                var inputLogin = document.getElementById("login");
+                var inputSenha = document.getElementById("senha");
+                var labelMensagens = document.getElementById("massage")
+                if(inputLogin.value == ''){
+                    labelMensagens.innerHTML = 'campo login precisa ser preenchido';
+                    return;
+                }else{
+                    labelMensagens.innerHTML = "";
+                }
+                if(inputSenha.value == ''){
+                    labelMensagens.innerHTML = 'campo senha precisa ser preenchido';
+                    return;
+                }else{
+                    labelMensagens.innerHTML = "";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div style="display: flex; justify-content: center;">
+            <div class="divForm">
+    
+                <h3> Login do sistema </h3>
+                <form class="form">
+                    
+                    <label>Login</label>
+                    <input id="login" type="text" class="dados">
+                    
+                    <label>Senha</label>
+                    <input id="senha" type="password" class="dados">
+                    <label id="massage" type="text" style="color: red; font-size: 12px;"></label>
+                    
+                    <button type="button" class="botaoSalvar"
+                        onclick="validarFormulario()">Logar</button>
+                </form>
+            </div>
+        </div>        
+    </body>
+</html>
