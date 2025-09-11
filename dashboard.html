@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <input type="text" id="nomeJogo" placeholder="Digite o nome do jogo" />
+    <button onclick="AdicionarCard()">Adicionar Card</button>
+    <div id="container" class="container">
+        <div class="card">
+            <div class="card-imagem">
+                <img class="card-img" src="image/image.png" />
+            </div>
+            <div class="card-corpo">
+                <div class="card-corpo-texto">
+                    <h2> {nome} </h2>
+                    jogo bla bla bla
+                </div>
+                <div class="card-acao">
+                    <button> Detalhes </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const container = document.getElementById('container');
+        const card = container.innerHTML;        
+        container.innerHTML = '';        
+       
+        const AdicionarCard = () => {
+            const inputNomeDoJogo = document.getElementById('nomeJogo');
+            const nomeDoJogo = inputNomeDoJogo.value;
+
+            container.innerHTML += card.replace('{nome}', nomeDoJogo);
+        }
+    </script>
+</body>
+
+</html>

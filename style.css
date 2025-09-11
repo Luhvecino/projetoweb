@@ -35,3 +35,37 @@
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
 
+.card {
+    width: 200px;
+    height: 300px;
+    border: 1px solid #CCCCCC;
+    padding: 10px;
+    margin: 5px;
+}
+
+.card-imagem {
+    height: 130px;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+}
+
+.card-corpo {
+    height: 170px;
+}
+
+.card-corpo-texto {
+    height: 110px;
+}
+
+.card-acao {
+    height: 60px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
