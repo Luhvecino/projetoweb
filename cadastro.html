@@ -1,6 +1,6 @@
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="cadastroStyle.css">
     <title>Cadastro</title>
     <script>        
         function validarFormulario(){                
@@ -30,18 +30,6 @@
             }else{
                 labelMensagens.innerHTML = "";
             }
-            if(inputMatricula.value == ''){
-                labelMensagens.innerHTML = 'campo matricula precisa ser preenchido';
-                return;
-            }else{
-                labelMensagens.innerHTML = "";
-            }
-            if(inputUsuario.value == ''){
-                labelMensagens.innerHTML = 'campo usuario precisa ser preenchido';
-                return;
-            }else{
-                labelMensagens.innerHTML = "";
-            }
             if(inputSenha.value == ''){
                 labelMensagens.innerHTML = 'campo senha precisa ser preenchido';
                 return;
@@ -60,34 +48,28 @@
             }else{
                 labelMensagens.innerHTML = "";
             }
-
         }
     </script>
 </head>
 
 <body>
-    <div style="display: flex; justify-content: center;">
-    
-        <div class="divForm">
-            
-            <form class="form">
-                <h1> Cadastro Usuário</h1>
-                <input id="nome" class="dados" type="text" placeholder="Nome"/>            
-                <input id="sobrenome" class="dados" type="text" placeholder="Sobrenome"/>            
-                <input id="email" class="dados" type="email" placeholder="E-mail"/>            
-                <input id="matricula" class="dados" type="text" placeholder="Matricula"/>            
-                <input id="usuario" class="dados" type="text" placeholder="Usuário"/>            
-                <input id="senha" class="dados" type="password" placeholder="Senha"/>            
-                <input id="repetirsenha" class="dados" type="password" placeholder="Confirmar Senha"/>            
-                <label id="massage" type="text" style="color: red; font-size: 12px;"></label>
-                        
+    <div class="cadastro">
+        <h2> Cadastro Usuário</h2>       
+        <div class="cadastro_tittle">     
+            <form class="cadastro_form">                
+                <input id="nome" class="input" type="text" placeholder="Nome"/>            
+                <input id="sobrenome" class="input" type="text" placeholder="Sobrenome"/>            
+                <input id="email" class="input" type="email" placeholder="E-mail"/>        
+                <input id="senha" class="input" type="password" placeholder="Senha"/>            
+                <input id="repetirsenha" class="input" type="password" placeholder="Confirmar Senha"/>            
+                <label id="massage" type="text" class="cadastro_message"></label>                        
                 <div>
-                    <button type="button" class="botaoSalvar"
-                        onclick="validarFormulario()">Salvar</button>
+                    <button type="button" class="cadastro_button_salvar"
+                        onclick="validarFormulario()">salvar</button>
                 </div>        
                 <!-- <img src="image/image.png"/> -->
             </form>
-    </div>
+        </div>
     </div>
 </body>
 

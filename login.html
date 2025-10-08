@@ -1,42 +1,69 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script>        
-            function validarFormulario(){                
-                var inputLogin = document.getElementById("login");
-                var inputSenha = document.getElementById("senha");
-                var labelMensagens = document.getElementById("massage")
-                if(inputLogin.value == ''){
-                    labelMensagens.innerHTML = 'campo login precisa ser preenchido';
-                    return;
+        <link rel="stylesheet" type="text/css" href="loginStyle.css">
+        <!-- importando fonte -->
+        <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet">
+        <script> 
+            function validarFormulario() {
+                var login = document.getElementById("login").value;
+                var senha = document.getElementById("senha").value;
+                var btnLogar = document.getElementById("btnLogar");
+
+                if(login === ""){
+                    labelMensagens.innerHTML = "O campo LOGIN precisa ser preenchido";
+                    return ;
                 }else{
-                    labelMensagens.innerHTML = "";
+                    document.getElementById("massage").innerText = "";
                 }
-                if(inputSenha.value == ''){
-                    labelMensagens.innerHTML = 'campo senha precisa ser preenchido';
-                    return;
+
+                if(senha === ""){
+                    document.getElementById("massage").innerText = "O campo SENHA precisa ser preenchido";
+                    return ;
                 }else{
-                    labelMensagens.innerHTML = "";
+                    document.getElementById("massage").innerText = "";
                 }
+                window.location.href = "dashboard.html";
+
             }
+
+            // Animação ao clicar nos botões
+            // window.onload = function() {
+            //     debugger;
+            //     var loginDiv = document.querySelector('.login');
+            //     var btnLogar = document.getElementById('btnLogar');
+            //     var btnCadastrar = document.getElementById('btnCadastrar');
+
+            //     btnLogar.onclick = function(e) {
+            //         if (!validarFormulario()) return;
+            //         loginDiv.classList.add('virando');
+            //         setTimeout(function() {
+            //             // Aqui você pode redirecionar ou mostrar outra página
+            //             // Exemplo: window.location.href = "pagina2.html";
+            //         }, 1000);
+            //     };
+
+            //     btnCadastrar.onclick = function(e) {
+            //         e.preventDefault();
+            //         loginDiv.classList.add('virando');
+            //         setTimeout(function() {
+            //             window.location.href = "cadastro.html";
+            //         }, 1000);
+            //     };
+            // };
         </script>
     </head>
     <body>
-        <div style="display: flex; justify-content: center;">
-            <div class="divForm">
-    
-                <h3> Login do sistema </h3>
-                <form class="form">
-                    
-                    <label>Login</label>
-                    <input id="login" type="text" class="dados">
-                    
-                    <label>Senha</label>
-                    <input id="senha" type="password" class="dados">
-                    <label id="massage" type="text" style="color: red; font-size: 12px;"></label>
-                    
-                    <button type="button" class="botaoSalvar"
-                        onclick="validarFormulario()">Logar</button>
+        <div class="login">
+            <h3> Login </h3>
+            <div class="login_tittle">  
+                <form class="login_form">
+                    <input id="login" type="text" class="input" placeholder="login">   
+                    <input id="senha" type="password" class="input" placeholder="senha">
+                    <label id="massage" type="text" class="login_message"></label>
+                    <div class="login_button_box">
+                        <button type="button" class="login_button" id="btnLogar" onclick="validarFormulario()">Logar</button>
+                        <a type="button" class="login_button" id="btnCadastrar" href="cadastro.html" style="text-decoration: none;">Cadastrar</a>                        
+                    </div>                    
                 </form>
             </div>
         </div>        

@@ -1,0 +1,145 @@
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5ecd7 60%, #e2c785 100%);
+    color: #111; /* fonte preta */
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2rem;
+    font-family: 'IM Fell English', serif;
+    background: 
+        linear-gradient(135deg, #f5ecd7 60%, #e2c785 100%),
+        repeating-linear-gradient(45deg, #e2c785 0 2px, transparent 2px 8px);
+    border: 2px solid #d2b48c;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(60, 40, 10, 0.25), 0 1.5px 0 #bfa76a inset;
+    padding: 50px 20px;
+    max-width: 400px;
+    width: 90vw;
+    max-height: 95vh;
+    overflow-y: auto;
+    box-sizing: border-box; 
+}
+
+.login_tittle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_form{
+    display: flex;
+    flex-direction: column;    
+    margin-bottom: 0px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #f9f6ef 80%, #e2c785 100%);
+    border: 2px solid #d2b48c;
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(60, 40, 10, 0.10) inset;
+    color: #111; /* fonte preta */
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input:focus {
+    border: 2.5px solid #bfa76a;
+    box-shadow: 0 0 8px #e2c785, 0 2px 8px rgba(60, 40, 10, 0.10) inset;
+    background: linear-gradient(135deg, #f5ecd7 90%, #e2c785 100%);
+}
+
+.login_button_box {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    width: 100%;
+}
+
+.login_button {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.2rem;
+    background: linear-gradient(500deg, #f9f6ef 80%, #e2c785 100%);
+    border: 2px solid #d2b48c;
+    border-radius: 12px;    
+    color: #111;
+    padding: 10px 24px;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(60, 40, 10, 0.10) inset;
+    cursor: pointer;
+    transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+    width: 100%;
+    box-sizing: border-box;      
+    min-width: 120px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.login_button:hover, .login_button:focus {
+    border: 2.5px solid #bfa76a;
+    background: linear-gradient(135deg, #f5ecd7 90%, #e2c785 100%);
+    box-shadow: 0 0 8px #e2c785, 0 2px 8px rgba(60, 40, 10, 0.10) inset;  
+      
+}
+
+.login_message {
+    font-family: 'IM Fell English', serif;
+    color: #ff0000;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    min-height: 1.2vh;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+/* responsividade */
+@media (max-width: 400px) {
+    .login {
+        padding: 24px 6px;
+        border-width: 2px;
+        border-radius: 18px;
+        font-size: 1.2rem;
+        max-width: 98vw;
+    }
+    .login_form {
+        padding: 10px 0;
+    }
+    .login_button_box {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+    .input, .login_button {
+        font-size: 1.2rem;
+        padding: 8px 10px;
+        min-width: unset;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+}
+
+
