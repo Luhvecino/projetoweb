@@ -1,40 +1,77 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta charset="UTF-8" />
+  <title>Library - Lista de Livros</title>
+  <link rel="stylesheet" type="text/css" href="styleDashboard.css" />
 </head>
 
 <body>
-    <input type="text" id="nomeJogo" placeholder="Digite o nome do jogo" />
-    <button onclick="AdicionarCard()">Adicionar Card</button>
-    <div id="container" class="container">
-        <div class="card">
-            <div class="card-imagem">
-                <img class="card-img" src="image/image.png" />
-            </div>
-            <div class="card-corpo">
-                <div class="card-corpo-texto">
-                    <h2> {nome} </h2>
-                    jogo bla bla bla
-                </div>
-                <div class="card-acao">
-                    <button> Detalhes </button>
-                </div>
-            </div>
-        </div>
+  <header class="header">
+    <h1>📚 Library</h1>
+    <nav>
+      <ul class="menu">
+        <li>Dashboard</li>
+        <li class="ativo">Livros</li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <h2>Livros disponíveis</h2>
+    <div class="grid-livros">
+
+      <div class="livro">
+        <img src="images/HarryPotter.jpg" alt="Dom Casmurro">
+        <h3>Harry Potter</h3>
+        <p class="autor">Autor: J.K Rowling</p>
+        <p class="preco">R$ 29,90</p>
+        <button class="btn-add">Adicionar ao Carrinho</button>
+      </div>
+
+      <div class="livro">
+        <img src="images/PequenoPrincipe.jpg" alt="O Pequeno Príncipe">
+        <h3>O Pequeno Príncipe</h3>
+        <p class="autor">Autor: Antoine de Saint-Exupéry</p>
+        <p class="preco">R$ 20,50</p>
+        <button class="btn-add">Adicionar ao Carrinho</button>
+      </div>
+
+      <div class="livro">
+        <img src="images/DiarioBnanana2.jpg" alt="1984">
+        <h3>1984</h3>
+        <p class="autor">Autor: Jeff Kinney</p>
+        <p class="preco">R$ 49,99</p>
+        <button class="btn-add">Adicionar ao Carrinho</button>
+      </div>
+
+      <div class="livro">
+        <img src="images/Hobbit.jpg" alt="O Hobbit">
+        <h3>O Hobbit</h3>
+        <p class="autor">Autor: J.R.R. Tolkien</p>
+        <p class="preco">R$ 29,90</p>
+        <button class="btn-add">Adicionar ao Carrinho</button>
+      </div>
+
+      <div class="livro">
+        <img src="images/CulpaEstrelas.jpg" alt="A Culpa é das Estrelas">
+        <h3>A Culpa é das Estrelas</h3>
+        <p class="autor">Autor: John Green</p>
+        <p class="preco">R$ 22,00</p>
+        <button class="btn-add">Adicionar ao Carrinho</button>
+      </div>
+
+      <div class="livro">
+        <img src="images/Alquimista.jpg" alt="O Alquimista">
+        <h3>O Alquimista</h3>
+        <p class="autor">Autor: Paulo Coelho</p>
+        <p class="preco">R$ 19,80</p>
+        <button class="btn-add">Adicionar ao Carrinho</button>
+      </div>
+
     </div>
-    <script>
-        const container = document.getElementById('container');
-        const card = container.innerHTML;        
-        container.innerHTML = '';        
-       
-        const AdicionarCard = () => {
-            const inputNomeDoJogo = document.getElementById('nomeJogo');
-            const nomeDoJogo = inputNomeDoJogo.value;
-            container.innerHTML += card.replace('{nome}', nomeDoJogo);
-        }
-    </script>
+  </main>
 </body>
 
 </html>
