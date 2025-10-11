@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="perfilStyle.css">
+    <title>Perfil do Usuário</title>
+    <script>
+        function editarConta() {
+            document.getElementById('form-editar').style.display = 'flex';
+            var emailLogado = localStorage.getItem('usuarioLogado');
+            var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            var usuario = usuarios.find(function(u) { return u.email === emailLogado; });
+            if(usuario){
+                document.getElementById('edit-nome').value = usuario.nome;
+                document.getElementById('edit-sobrenome').value = usuario.sobrenome;
+                document.getElementById('edit-email').value = usuario.email;
+                document.getElementById('edit-senha').value = usuario.senha;
+            }
+        }
+
+        function salvarEdicao(event) {
+            event.preventDefault();
+            var emailLogado = localStorage.getItem('usuarioLogado');
+            var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            var usuario = usuarios.find(function(u) { return u.email === emailLogado; });
+            if(usuario){
+                usuario.nome = document.getElementById('edit-nome').value;
+                usuario.sobrenome = document.getElementById('edit-sobrenome').value;
+                usuario.email = document.getElementById('edit-email').value;
+                usuario.senha = document.getElementById('edit-senha').value;
+                localStorage.setItem('usuarios', JSON.stringify(usuarios));
+                alert("Dados atualizados!");
+                document.getElementById('form-editar').style.display = 'none';
+                location.reload();
+            }
+        }
+
+        function cancelarEdicao() {
+            document.getElementById('form-editar').style.display = 'none';
+        }
+
+        function excluirConta() {
+            if(confirm("Tem certeza que deseja excluir sua conta?")) {
+                var emailLogado = localStorage.getItem('usuarioLogado');
+                var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+                var usuarioIndex = usuarios.findIndex(function(u) { return u.email === emailLogado; });
+                if(usuarioIndex !== -1) {
+                    usuarios.splice(usuarioIndex, 1); // Remove o usuário encontrado
+                    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+                    alert("Conta excluída!");
+                    window.location.href = "login.html";
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <header class="header">
+      <h1>📚 Library</h1>
+      <nav>
+        <ul class="menu">
+          <li><a href="dashboard.html" style="text-decoration:none; color:inherit;">Dashboard</a></li>      
+          <li class="ativo">Livros</li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="perfil">
+        <h2 id="perfil-titulo">Perfil do Usuário</h2>
+        <div class="perfil_botoes">
+            <button class="perfil_button" onclick="editarConta()">Editar Conta</button>
+            <button class="perfil_button excluir" onclick="excluirConta()">Excluir Conta</button>
+        </div>
+        <form id="form-editar" style="display:none; flex-direction:column; gap:12px; margin-top:24px;" onsubmit="salvarEdicao(event)">
+            <input id="edit-nome" class="input" type="text" placeholder="Nome" required>
+            <input id="edit-sobrenome" class="input" type="text" placeholder="Sobrenome" required>
+            <input id="edit-email" class="input" type="email" placeholder="Email" required>
+            <input id="edit-senha" class="input" type="password" placeholder="Senha" required>
+            <div style="display:flex; gap:10px;">
+                <button type="submit" class="perfil_button">Salvar</button>
+                <button type="button" class="perfil_button excluir" onclick="cancelarEdicao()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        window.onload = function() {
+            var emailLogado = localStorage.getItem('usuarioLogado');
+            var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            var usuario = usuarios.find(function(u) { return u.email === emailLogado; });
+            if(usuario && usuario.nome){
+                document.getElementById('perfil-titulo').textContent = "Perfil de " + usuario.nome;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -7,8 +7,6 @@
             var inputNome = document.getElementById("nome");
             var inputSobrenome = document.getElementById("sobrenome");
             var inputEmail = document.getElementById("email");
-            var inputMatricula = document.getElementById("matricula");
-            var inputUsuario = document.getElementById("usuario");
             var inputSenha = document.getElementById("senha");
             var inputRepetirSenha = document.getElementById("repetirsenha");
             var labelMensagens = document.getElementById("massage")
@@ -48,7 +46,22 @@
             }else{
                 labelMensagens.innerHTML = "";
             }
+
+            // Salvar vários usuários no localStorage
+            var usuario = {
+                nome: inputNome.value,
+                sobrenome: inputSobrenome.value,
+                email: inputEmail.value,
+                senha: inputSenha.value 
+            };
+
+            // Recupera o array de usuários ou cria um novo
+            var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            usuarios.push(usuario);
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+            labelMensagens.innerHTML = "Cadastro salvo com sucesso!";
         }
+        
     </script>
 </head>
 

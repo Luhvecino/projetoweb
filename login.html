@@ -7,57 +7,44 @@
             function validarFormulario() {
                 var login = document.getElementById("login").value;
                 var senha = document.getElementById("senha").value;
-                var btnLogar = document.getElementById("btnLogar");
+                var labelMensagens = document.getElementById("massage");
 
                 if(login === ""){
                     labelMensagens.innerHTML = "O campo LOGIN precisa ser preenchido";
                     return ;
                 }else{
-                    document.getElementById("massage").innerText = "";
+                    labelMensagens.innerText = "";
                 }
 
                 if(senha === ""){
-                    document.getElementById("massage").innerText = "O campo SENHA precisa ser preenchido";
+                    labelMensagens.innerText = "O campo SENHA precisa ser preenchido";
                     return ;
                 }else{
-                    document.getElementById("massage").innerText = "";
+                    labelMensagens.innerText = "";
                 }
-                window.location.href = "dashboard.html";
+                
+                var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+                var usuarioEncontrado = usuarios.find(function(usuario) {
+                    return usuario.email === login && usuario.senha === senha;
+                });
 
+                if(usuarioEncontrado){
+                    localStorage.setItem('usuarioLogado', usuarioEncontrado.email);
+                    window.location.href = "dashboard.html";
+                } else {
+                    labelMensagens.innerText = "Email ou senha inválidos!";
+                }
             }
-
-            // Animação ao clicar nos botões
-            // window.onload = function() {
-            //     debugger;
-            //     var loginDiv = document.querySelector('.login');
-            //     var btnLogar = document.getElementById('btnLogar');
-            //     var btnCadastrar = document.getElementById('btnCadastrar');
-
-            //     btnLogar.onclick = function(e) {
-            //         if (!validarFormulario()) return;
-            //         loginDiv.classList.add('virando');
-            //         setTimeout(function() {
-            //             // Aqui você pode redirecionar ou mostrar outra página
-            //             // Exemplo: window.location.href = "pagina2.html";
-            //         }, 1000);
-            //     };
-
-            //     btnCadastrar.onclick = function(e) {
-            //         e.preventDefault();
-            //         loginDiv.classList.add('virando');
-            //         setTimeout(function() {
-            //             window.location.href = "cadastro.html";
-            //         }, 1000);
-            //     };
-            // };
+            console.log(localStorage);
         </script>
     </head>
+    
     <body>
         <div class="login">
             <h3> Login </h3>
             <div class="login_tittle">  
                 <form class="login_form">
-                    <input id="login" type="text" class="input" placeholder="login">   
+                    <input id="login" type="text" class="input" placeholder="email">   
                     <input id="senha" type="password" class="input" placeholder="senha">
                     <label id="massage" type="text" class="login_message"></label>
                     <div class="login_button_box">
