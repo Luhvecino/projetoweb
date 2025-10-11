@@ -1,79 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Library - Lista de Livros</title>
-  <link rel="stylesheet" type="text/css" href="dashboardStyle.css" />
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Library - Lista de Livros</title>
+        <link rel="stylesheet" type="text/css" href="dashboardStyle.css" />
+    </head>
 
-<body>
-  <header class="header">
-    <h1>📚 Library</h1>
-    <nav>
-      <ul class="menu">
-        <li><a href="perfil.html" style="text-decoration:none; color:inherit;">Perfil</a></li>
-        <!-- <li>Dashboard</li>         -->
-        <li class="ativo">Livros</li>
-        <li><a href="login.html" style="text-decoration:none; color:inherit;">Sair</a></li>
-      </ul>
-    </nav>
-  </header>
+    <body>
+        <header class="header">
+            <h1>📚 Library</h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="perfil.html" style="text-decoration:none; color:inherit;">Perfil</a></li>
+                    <!-- <li>Dashboard</li>         -->
+                    <li class="ativo">Livros</li>
+                    <li><a href="login.html" style="text-decoration:none; color:inherit;">Sair</a></li>
+                </ul>
+            </nav>
+        </header>
 
-  <main class="conteudo">
-    <h2>Livros disponíveis</h2>
-    <div class="grid-livros">
+        <main class="conteudo">
+            <div class="add-book">
+                <h2>Adicionar novo livro</h2>
+                <form id="formAddLivro" class="form-add-livro">
+                    <input type="text" id="titulo" name="titulo" placeholder="Título do livro" required />
+                    <input type="text" id="autor" name="autor" placeholder="Autor" required />
+                    <input type="number" id="preco" name="preco" step="0.01" placeholder="Preço (R$)" required />
+                    <button type="submit" class="btn-submit">Adicionar Livro</button>
+                </form>
+                
+            </div>
+            <h2>Livros disponíveis</h2>
+            <div class="grid-livros">
 
-      <div class="livro">
-        <img src="images/HarryPotter.jpg" alt="Harry Potter">
-        <h3>Harry Potter</h3>
-        <p class="autor">Autor: J.K Rowling</p>
-        <p class="preco">R$ 29,90</p>
-        <button class="btn-add">Adicionar ao Carrinho</button>
-      </div>
 
-      <div class="livro">
-        <img src="images/PequenoPrincipe.jpg" alt="O Pequeno Príncipe">
-        <h3>O Pequeno Príncipe</h3>
-        <p class="autor">Autor: Antoine de Saint-Exupéry</p>
-        <p class="preco">R$ 20,50</p>
-        <button class="btn-add">Adicionar ao Carrinho</button>
-      </div>
-
-      <div class="livro">
-        <img src="images/DiarioBnanana2.jpg" alt="Diario de um Banana">
-        <h3>Diario de um Banana 2</h3>
-        <p class="autor">Autor: Jeff Kinney</p>
-        <p class="preco">R$ 49,99</p>
-        <button class="btn-add">Adicionar ao Carrinho</button>
-      </div>
-
-      <div class="livro">
-        <img src="images/Hobbit.jpg" alt="O Hobbit">
-        <h3>O Hobbit</h3>
-        <p class="autor">Autor: J.R.R. Tolkien</p>
-        <p class="preco">R$ 29,90</p>
-        <button class="btn-add">Adicionar ao Carrinho</button>
-      </div>
-
-      <div class="livro">
-        <img src="images/CulpaEstrelas.jpg" alt="A Culpa é das Estrelas">
-        <h3>A Culpa é das Estrelas</h3>
-        <p class="autor">Autor: John Green</p>
-        <p class="preco">R$ 22,00</p>
-        <button class="btn-add">Adicionar ao Carrinho</button>
-      </div>
-
-      <div class="livro">
-        <img src="images/Alquimista.jpg" alt="O Alquimista">
-        <h3>O Alquimista</h3>
-        <p class="autor">Autor: Paulo Coelho</p>
-        <p class="preco">R$ 19,80</p>
-        <button class="btn-add">Adicionar ao Carrinho</button>
-      </div>
-
-    </div>
-  </main>
-</body>
-
+            </div>
+        </main>
+        <script src="dashboard.js"></script>
+    </body>
 </html>
