@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../styles/perfilStyle.css">
+    <title>Perfil do Usuário</title>
+    <script src="../scripts/perfil.js"></script>
+</head>
+<body>
+    <header class="header">
+      <h1>📚 Library</h1>
+      <nav>
+        <ul class="menu">
+          <li><a href="dashboard.html" style="text-decoration:none; color:inherit;">Dashboard</a></li>      
+          <li class="ativo">Livros</li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="perfil">
+        <h2 id="perfil-titulo">Perfil do Usuário</h2>
+        <div class="perfil_botoes">
+            <button class="perfil_button" onclick="editarConta()">Editar Conta</button>
+            <button class="perfil_button excluir" onclick="excluirConta()">Excluir Conta</button>
+        </div>
+        <form id="form-editar" style="display:none; flex-direction:column; gap:12px; margin-top:24px;" onsubmit="salvarEdicao(event)">
+            <input id="edit-nome" class="input" type="text" placeholder="Nome" required>
+            <input id="edit-sobrenome" class="input" type="text" placeholder="Sobrenome" required>
+            <input id="edit-email" class="input" type="email" placeholder="Email" required>
+            <input id="edit-senha" class="input" type="password" placeholder="Senha" required>
+            <div style="display:flex; gap:10px;">
+                <button type="submit" class="perfil_button">Salvar</button>
+                <button type="button" class="perfil_button" onclick="cancelarEdicao()">Cancelar</button>
+            </div>
+        </form>
+    </div>    
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../styles/loginStyle.css">
+        <!-- importando fonte -->
+        <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet">
+        <script src="../scripts/login.js"></script>
+    </head>
+    
+    <body>
+        <div class="login">
+            <h3> Login </h3>
+            <div class="login_tittle">  
+                <form class="login_form">
+                    <input id="login" type="text" class="input" placeholder="email">   
+                    <input id="senha" type="password" class="input" placeholder="senha">
+                    <label id="massage" type="text" class="login_message"></label>
+                    <div class="login_button_box">
+                        <button type="button" class="login_button" id="btnLogar" onclick="validarFormulario()">Logar</button>
+                        <a type="button" class="login_button" id="btnCadastrar" href="cadastro.html" style="text-decoration: none;">Cadastrar</a>                        
+                    </div>                    
+                </form>
+            </div>
+        </div>        
+    </body>
+</html>

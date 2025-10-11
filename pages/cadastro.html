@@ -1,0 +1,28 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../styles/cadastroStyle.css">
+    <title>Cadastro</title>
+    <script src="../scripts/cadastro.js"></script>
+</head>
+
+<body>
+    <div class="cadastro">
+        <h2> Cadastro Usuário</h2>       
+        <div class="cadastro_tittle">     
+            <form class="cadastro_form">                
+                <input id="nome" class="input" type="text" placeholder="Nome"/>            
+                <input id="sobrenome" class="input" type="text" placeholder="Sobrenome"/>            
+                <input id="email" class="input" type="email" placeholder="E-mail"/>        
+                <input id="senha" class="input" type="password" placeholder="Senha"/>            
+                <input id="repetirsenha" class="input" type="password" placeholder="Confirmar Senha"/>            
+                <label id="massage" type="text" class="cadastro_message"></label>                        
+                <div>
+                    <button type="button" class="cadastro_button_salvar"
+                        onclick="validarFormulario()">salvar</button>
+                </div>        
+                <!-- <img src="image/image.png"/> -->
+            </form>
+        </div>
+    </div>
+</body>
+</html>

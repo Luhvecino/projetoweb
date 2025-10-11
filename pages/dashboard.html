@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>Library - Lista de Livros</title>
-        <link rel="stylesheet" type="text/css" href="dashboardStyle.css" />
+        <link rel="stylesheet" type="text/css" href="../styles/dashboardStyle.css" />
     </head>
 
     <body>
@@ -14,7 +14,7 @@
                 <ul class="menu">
                     <li><a href="perfil.html" style="text-decoration:none; color:inherit;">Perfil</a></li>
                     <!-- <li>Dashboard</li>         -->
-                    <li class="ativo">Livros</li>
+                    <!-- <li class="ativo">Livros</li> -->
                     <li><a href="login.html" style="text-decoration:none; color:inherit;">Sair</a></li>
                 </ul>
             </nav>
@@ -24,19 +24,19 @@
             <div class="add-book">
                 <h2>Adicionar novo livro</h2>
                 <form id="formAddLivro" class="form-add-livro">
-                    <input type="text" id="titulo" name="titulo" placeholder="Título do livro" required />
-                    <input type="text" id="autor" name="autor" placeholder="Autor" required />
-                    <input type="number" id="preco" name="preco" step="0.01" placeholder="Preço (R$)" required />
-                    <button type="submit" class="btn-submit">Adicionar Livro</button>
+                    <div class="input-box">
+                        <input type="text" class="input" id="titulo" name="titulo" placeholder="Título do livro" required />
+                        <input type="text" class="input" id="autor" name="autor" placeholder="Autor" required />
+                        <input type="number" class="input" id="preco" name="preco" step="0.01" placeholder="Preço (R$)" required />
+                    </div>
+                    <button type="submit" id="btnAddLivro" class="btn-add">Adicionar</button>
                 </form>
                 
             </div>
             <h2>Livros disponíveis</h2>
             <div class="grid-livros">
-
-
             </div>
         </main>
-        <script src="dashboard.js"></script>
+        <script src="../scripts/dashboard.js"></script>
     </body>
 </html>
