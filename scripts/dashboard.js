@@ -26,6 +26,12 @@ function generateBook(name, price, autor, index){
     `
 }
 
+function clearInputs(){
+    document.getElementById('titulo').value = "" 
+    document.getElementById('autor').value = "" 
+    document.getElementById('preco').value = "" 
+}
+
 function rerenderGrid(){
     const grid = document.querySelector(".grid-livros")
     grid.innerHTML = ""
@@ -38,6 +44,14 @@ function rerenderGrid(){
             const index = parseInt(btn.getAttribute("data-index"))
             books.splice(index, 1)
             localStorage.setItem("books", JSON.stringify(books))
+            
+            if(editIndex !== null){
+                editIndex = null
+
+                document.getElementById('btnAddLivro').textContent = "Adicionar"
+                clearInputs()
+
+            }
             rerenderGrid() 
         })
     })
@@ -71,6 +85,7 @@ form.addEventListener('submit', e => {
             price: preco
         }
         editIndex = null
+        clearInputs()
 
         // Volta o texto do botão para "Adicionar"
         document.getElementById('btnAddLivro').textContent = "Adicionar"
