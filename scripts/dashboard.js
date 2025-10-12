@@ -45,7 +45,7 @@ function rerenderGrid(){
             books.splice(index, 1)
             localStorage.setItem("books", JSON.stringify(books))
             
-            if(editIndex !== null){
+            if(editIndex == index){
                 editIndex = null
 
                 document.getElementById('btnAddLivro').textContent = "Adicionar"
