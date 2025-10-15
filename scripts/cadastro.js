@@ -56,4 +56,5 @@ var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 usuarios.push(usuario);
 localStorage.setItem('usuarios', JSON.stringify(usuarios));
 labelMensagens.innerHTML = "Cadastro salvo com sucesso!";
+window.location.href = "login.html"
 }
