@@ -1,31 +1,28 @@
-function validarFormulario() {
-    var login = document.getElementById("login").value;
+async function validarFormulario() {
+    var email = document.getElementById("email").value;
     var senha = document.getElementById("senha").value;
     var labelMensagens = document.getElementById("massage");
 
-    if(login === ""){
-        labelMensagens.innerHTML = "O campo LOGIN precisa ser preenchido";
-        return ;
-    }else{
-        labelMensagens.innerText = "";
-    }
-
-    if(senha === ""){
-        labelMensagens.innerText = "O campo SENHA precisa ser preenchido";
+    if(email === "" || senha ===""){
+        labelMensagens.innerHTML = "Os campos LOGIN e SENHA precisam ser preenchido"; 
         return ;
     }else{
         labelMensagens.innerText = "";
     }
     
-    var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-    var usuarioEncontrado = usuarios.find(function(usuario) {
-        return usuario.email === login && usuario.senha === senha;
-    });
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('senha', senha);
 
-    if(usuarioEncontrado){
-        localStorage.setItem('usuarioLogado', usuarioEncontrado.email);
-        window.location.href = "dashboard.html";
-    } else {
+    const response = await fetch('../php/usuarioControle/loginUsuario.php', {
+            method: 'POST',
+            body: formData
+        });
+    const resultado = await response.json();
+  
+    if(resultado.success){
+        window.location.href = "dashboard.html"
+    }else{
         labelMensagens.innerText = "Email ou senha inválidos!";
     }
 }

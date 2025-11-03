@@ -4,8 +4,6 @@ function editarConta() {
     var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
     var usuario = usuarios.find(function(u) { return u.email === emailLogado; });
     if(usuario){
-        document.getElementById('edit-nome').value = usuario.nome;
-        document.getElementById('edit-sobrenome').value = usuario.sobrenome;
         document.getElementById('edit-email').value = usuario.email;
         document.getElementById('edit-senha').value = usuario.senha;
     }

@@ -1,0 +1,32 @@
+<html>
+<head>    
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="dashboard.html" />
+</head>
+<script src="../scripts/listarUsuario.js"></script>
+<body>
+    <div style="display: flex; justify-content: center; align-items: end;">
+
+        <div style="width: 50%; padding: 30px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
+            <h3>Gerenciar Usuários</h3>
+
+            <button onclick="pesquisar()">Pesquisar</button>
+            <table id="tabelaUsuario" style="width: 100%; border: 1px solid #000000;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Senha</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Linhas serão inseridas dinamicamente pelo listarUsuario.js -->
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</body>
+</body>
+</html>
