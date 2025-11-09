@@ -7,7 +7,7 @@ $conexao = mysqli_connect("localhost", "root", "", "projetoweb");
 $titulo = $_POST['titulo'];
 $autor = $_POST['autor'];
 $price = $_POST['price'];
-$imageUrl = $_POST['imageUrl'];
+$imageUrl = empty($_POST['imageUrl']) ? "../image/image.png" : $_POST['imageUrl'];;
 
 $sql = "INSERT INTO livros (titulo, autor, price, imageUrl) VALUES (?, ?, ?, ?)";
 
