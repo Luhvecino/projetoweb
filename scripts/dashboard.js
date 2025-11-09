@@ -36,6 +36,23 @@ async function checkGerenciarLink(){
 }
 checkGerenciarLink();
 
+async function addToCart(livro_id) {
+    const promise = await fetch("../php/carrinho/addToCart.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            livro_id
+        })
+    })
+    const response = await promise.json()
+    if(response.success == false){
+        window.location.href = "login.html"
+    }
+    alert("Livro adicionado ao carrinho com sucesso!")
+}
+
 function generateBook(titulo, price, autor, id, imageUrl="../image/image.png"){
     return `
       <div class="livro">
@@ -43,7 +60,7 @@ function generateBook(titulo, price, autor, id, imageUrl="../image/image.png"){
         <p class="autor">Autor: ${autor}</p>
         <p class="preco">R$ ${price}</p>
         <img src="${imageUrl}"/>
-        <button class="btn-add">Adicionar ao Carrinho</button>
+        <button class="btn-add" onClick="addToCart(${id})">Adicionar ao Carrinho</button>
         <button class="btn-edit" style="display:none" data-id="${id}">Editar</button>
         <button class="btn-remove" style="display:none" data-id="${id}">Remover</button>        
       </div>
