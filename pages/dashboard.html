@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
     <head>
         <meta charset="UTF-8" />        
         <title>Library - Lista de Livros</title>
@@ -13,6 +12,8 @@
             <nav>
                 <ul class="menu">
                     <li><a href="perfil.html" style="text-decoration:none; color:inherit;">Perfil</a></li>
+                    <li><a href="carrinho.html" style="text-decoration:none; color:inherit;">Carrinho</a></li>
+                    <li><a href="dashboard.html" style="text-decoration:none; color:inherit;">Livros</a></li>
                     <li><a href="login.html" style="text-decoration:none; color:inherit;">Sair</a></li>
                     <li id="liGerenciar" style="display:none"><a id="idGerenciar" href="gerenciar.html" style="text-decoration:none; color:inherit;">Gerenciar</a></li>
                 </ul>
@@ -32,11 +33,13 @@
                         <input type="text" class="input" id="titulo" name="titulo" placeholder="Título do livro" required />
                         <input type="text" class="input" id="autor" name="autor" placeholder="Autor" required />
                         <input type="number" class="input" id="preco" name="preco" step="0.01" placeholder="Preço (R$)" required />
-                        <input type="text" class="input" id="imageUrl" name="imageUrl" placeholder="URL da imagem" required />
+                        <input type="text" class="input" id="imageUrl" name="imageUrl" placeholder="URL da imagem"/>
                     </div>
                     <button type="submit" id="btnAddLivro" class="btn-add">Adicionar</button>
                 </form>                
-            </div>            
+            </div>   
+            <h2>Livros disponíveis</h2>
+            <div class="grid-livros"></div>         
             
         </main>
         
