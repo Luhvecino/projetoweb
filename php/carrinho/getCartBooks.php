@@ -29,7 +29,7 @@ $row = mysqli_fetch_all($res, MYSQLI_ASSOC);
 if ($row) {
     echo json_encode(["success" => true, "books" => $row]);
 } else {
-    echo json_encode([]);
+    echo json_encode(["success" => true, "books" => []]);
 }
 
 mysqli_stmt_close($stmt);
