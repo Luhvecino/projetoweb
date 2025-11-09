@@ -19,7 +19,7 @@ mysqli_stmt_bind_param($stmt, "i", $id);
 
 // Executa a query
 $resultado = mysqli_stmt_execute($stmt);
-
+echo json_encode(["success" => true, "message" => "Usuário excluido com sucesso."]);
 // Fecha os recursos
 mysqli_stmt_close($stmt);
 mysqli_close($conexao);
