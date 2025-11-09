@@ -92,30 +92,46 @@ function rerenderGrid(){
     })
 
     // editar (puxa dados do servidor por id)
-    document.querySelectorAll(".btn-edit").forEach(btn => {
-        btn.addEventListener("click", async () => {
-            const id = parseInt(btn.getAttribute("data-id"))
-            try {
-                const res = await fetch(`../php/livroControle/getLivro.php?id=${id}`);
-                const json = await res.json();
-                if (!json.success) {
-                    alert('Erro ao buscar livro: ' + (json.message || ''));
-                    return;
-                }
-                const book = json.book;
-                document.getElementById('titulo').value = book.titulo || '';
-                document.getElementById('autor').value = book.autor || '';
-                document.getElementById('preco').value = book.price || '';
-                const imgEl = document.getElementById('imageUrl');
-                if (imgEl) imgEl.value = book.imageUrl || '';
-                editIndex = id;
-                document.getElementById('btnAddLivro').textContent = "Alterar";
-            } catch (err) {
-                console.error('erro ao buscar livro', err);
-                alert('Erro ao buscar dados do livro');
+document.querySelectorAll(".btn-edit").forEach(btn => {
+    btn.addEventListener("click", async () => {
+        const id = parseInt(btn.getAttribute("data-id"))
+        try {
+            const res = await fetch(`../php/livroControle/getLivro.php?id=${id}`);
+            const json = await res.json();
+            if (!json.success) {
+                alert('Erro ao buscar livro: ' + (json.message || ''));
+                return;
             }
-        })
+            const book = json.book;
+            document.getElementById('titulo').value = book.titulo || '';
+            document.getElementById('autor').value = book.autor || '';
+            document.getElementById('preco').value = book.price || '';
+            const imgEl = document.getElementById('imageUrl');
+            if (imgEl) imgEl.value = book.imageUrl || '';
+            editIndex = id;
+            document.getElementById('btnAddLivro').textContent = "Alterar";
+            
+            // MOSTRAR o formulário primeiro
+            const formDiv = document.getElementById('div-add-livro');
+            formDiv.style.display = 'block';
+            
+            // Scroll para o formulário de edição
+            setTimeout(() => {
+                formDiv.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center'
+                });
+                
+                // Opcional: Focar no primeiro campo
+                document.getElementById('titulo').focus();
+            }, 100);
+            
+        } catch (err) {
+            console.error('erro ao buscar livro', err);
+            alert('Erro ao buscar dados do livro');
+        }
     })
+})
 }
 const form = document.getElementById('formAddLivro')
 
