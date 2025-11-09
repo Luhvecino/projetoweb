@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Library - Lista de Livros</title>
+        <link rel="stylesheet" type="text/css" href="../styles/dashboardStyle.css" />
+    </head>
+
+    <body>
+        <header class="header">
+            <h1>📚 Library</h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="perfil.html" style="text-decoration:none; color:inherit;">Perfil</a></li>
+                    <li><a href="carrinho.html" style="text-decoration:none; color:inherit;">Carrinho</a></li>
+                    <li><a href="dashboard.html" style="text-decoration:none; color:inherit;">Livros</a></li>
+                    <li><a href="login.html" style="text-decoration:none; color:inherit;">Sair</a></li>
+                    <li id="liGerenciar" style="display:none"><a id="idGerenciar" href="gerenciar.html" style="text-decoration:none; color:inherit;">Gerenciar</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="conteudo" style="margin-top: 100px;">
+            <h2>Carrinho</h2>
+            <div class="grid-livros-carrinho"></div>
+         
+            
+        </main>
+        
+        <script src="../scripts/carrinho.js"></script>
+    </body>
+</html>
