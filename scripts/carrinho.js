@@ -1,22 +1,34 @@
 let livrosCarrinho = []
 const vazio = document.getElementById("vazio")
+const subtotal = document.getElementById("subtotal")
+const compra = document.getElementById("btn-compra")
+
+function rerenderValues(){
+    if(livrosCarrinho.length === 0){
+        vazio.style.display = "block"
+        subtotal.style.display = "none"
+        compra.style.display = "none"
+    }else{
+        vazio.style.display = "none"
+        subtotal.style.display = "block"
+        compra.style.display = "block"
+        const total = livrosCarrinho.reduce((sum, livro) => sum + Number(livro.price), 0);
+        subtotal.innerText = `Subtotal: R$ ${total.toFixed(2)}`;
+    }
+}
 
 async function fetchCartBooks(){
     try {
-            const res = await fetch('../php/carrinho/getCartBooks.php');
-            const json = await res.json();
-            
-            if(json.success !== true){
-                window.location.href = "login.html"
-            }
+        const res = await fetch('../php/carrinho/getCartBooks.php');
+        const json = await res.json();
+        
+        if(json.success !== true){
+            window.location.href = "login.html"
+        }
 
-            livrosCarrinho = json.books;
+        livrosCarrinho = json.books;
+        rerenderValues()
 
-            if(livrosCarrinho.length === 0){
-                vazio.style.display = "block"
-            }else{
-                vazio.style.display = "none"
-            }
         rerenderGridCarrinho();
     } catch (err) {
         console.error('Erro ao buscar livros:', err);
@@ -41,11 +53,7 @@ async function deleteFromCart(id) {
     }
     livrosCarrinho = livrosCarrinho.filter(livro => livro.id !== id)
     
-    if(livrosCarrinho.length === 0){
-        vazio.style.display = "block"
-    }else{
-        vazio.style.display = "none"
-    }
+    rerenderValues()
 
     rerenderGridCarrinho()
     alert("Livro removido do carrinho com sucesso!")
