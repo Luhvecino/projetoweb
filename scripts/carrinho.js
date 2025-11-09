@@ -1,4 +1,5 @@
 let livrosCarrinho = []
+const vazio = document.getElementById("vazio")
 
 async function fetchCartBooks(){
     try {
@@ -10,6 +11,12 @@ async function fetchCartBooks(){
             }
 
             livrosCarrinho = json.books;
+
+            if(livrosCarrinho.length === 0){
+                vazio.style.display = "block"
+            }else{
+                vazio.style.display = "none"
+            }
         rerenderGridCarrinho();
     } catch (err) {
         console.error('Erro ao buscar livros:', err);
@@ -33,6 +40,13 @@ async function deleteFromCart(id) {
         window.location.href = "login.html"
     }
     livrosCarrinho = livrosCarrinho.filter(livro => livro.id !== id)
+    
+    if(livrosCarrinho.length === 0){
+        vazio.style.display = "block"
+    }else{
+        vazio.style.display = "none"
+    }
+
     rerenderGridCarrinho()
     alert("Livro removido do carrinho com sucesso!")
 }
