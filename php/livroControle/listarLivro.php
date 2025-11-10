@@ -8,8 +8,14 @@ if(!$conexao){
     exit;
 }
 
-// Lista todos os livros da tabela `livros` (crie a tabela conforme instruções se não existir)
-$sql = "SELECT id, titulo, autor, price, imageUrl FROM livros";
+// Verifica se foi passado o parâmetro 'titulo' na URL
+if(isset($_GET['titulo']) && !empty($_GET['titulo'])) {
+    $titulo = mysqli_real_escape_string($conexao, $_GET['titulo']);
+    $sql = "SELECT id, titulo, autor, price, imageUrl FROM livros WHERE titulo LIKE '%$titulo%' OR autor LIKE '%$titulo%'";
+} else {
+    // Se não houver parâmetro, busca todos os livros
+    $sql = "SELECT id, titulo, autor, price, imageUrl FROM livros";
+}
 
 $resultado = mysqli_query($conexao, $sql);
 
@@ -23,5 +29,4 @@ $rows = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 echo json_encode($rows);
 
 mysqli_close($conexao);
-
 ?>

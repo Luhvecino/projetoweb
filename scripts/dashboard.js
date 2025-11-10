@@ -36,6 +36,64 @@ async function checkGerenciarLink(){
 }
 checkGerenciarLink();
 
+// Função para pesquisar livros
+async function pesquisarLivros() {
+    checkGerenciarLink();
+    // Obtém o valor do input de pesquisa
+    const inputPesquisa = document.getElementById('inputPesquisar').value;
+    
+    // Se o input estiver vazio, busca todos os livros
+    // Se tiver conteúdo, busca por título ou autor
+    const url = inputPesquisa 
+        ? `../php/livroControle/listarLivro.php?titulo=${encodeURIComponent(inputPesquisa)}`
+        : "../php/livroControle/listarLivro.php";
+
+    try {
+        const response = await fetch(url, {
+            method: "GET"
+        });
+        
+        const livros = await response.json();
+        const gridLivros = document.querySelector('.grid-livros');
+        
+        // Limpa a grade de livros
+        gridLivros.innerHTML = '';
+
+        // Se não encontrar resultados
+        if (livros.length === 0) {
+            gridLivros.innerHTML = `
+                <div class="nenhum-resultado">
+                    <p>Nenhum livro encontrado</p>
+                </div>
+            `;
+            return;
+        }
+
+        // Gera os livros na grade
+        livros.forEach(livro => {
+            const livroElement = generateBook(
+                livro.titulo, 
+                livro.price, 
+                livro.autor, 
+                livro.id, 
+                livro.imageUrl
+            );
+            gridLivros.innerHTML += livroElement;
+        });
+
+    } catch (error) {
+        console.error('Erro ao pesquisar livros:', error);
+        alert('Erro ao buscar livros');
+    }
+}
+
+// Enter no input
+document.getElementById('inputPesquisar')?.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        pesquisarLivros();
+    }
+});
+
 async function addToCart(livro_id) {
     const promise = await fetch("../php/carrinho/addToCart.php", {
         method: "POST",
@@ -153,6 +211,7 @@ document.querySelectorAll(".btn-edit").forEach(btn => {
 const form = document.getElementById('formAddLivro')
 
  form.addEventListener('submit', async e  => {
+    checkGerenciarLink();
     e.preventDefault()
     const titulo = document.getElementById('titulo').value
     const autor = document.getElementById('autor').value
