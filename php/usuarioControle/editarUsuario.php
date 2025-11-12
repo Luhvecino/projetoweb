@@ -9,7 +9,6 @@ if (!$conexao) {
     exit;
 }
 
-// Verifica se o usuário está logado
 if (!isset($_SESSION['usuario_id'])) {
     echo json_encode(["success" => false, "message" => "Usuário não está logado."]);
     exit;
@@ -19,13 +18,11 @@ $id = $_SESSION['usuario_id'];
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 $senha = isset($_POST['senha']) ? $_POST['senha'] : '';
 
-// Validação
 if ($email === '' || $senha === '') {
     echo json_encode(["success" => false, "message" => "Email e senha são obrigatórios."]);
     exit;
 }
 
-// Atualiza o usuário
 $sql = "UPDATE usuarios SET email = ?, senha = ? WHERE id = ?";
 $stmt = mysqli_prepare($conexao, $sql);
 
