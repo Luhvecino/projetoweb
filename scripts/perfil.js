@@ -1,4 +1,4 @@
-// Carregar dados do usuário logado ao abrir o perfil
+// carrega dad do usuário logado
 window.onload = async function() {
     try {
         const response = await fetch("../php/getUsuarioLogado.php");
@@ -20,17 +20,14 @@ window.onload = async function() {
     }
 };
 
-// Exibir formulário de edição
 function editarConta() {
     document.getElementById("form-editar").style.display = "flex";
 }
 
-// Cancelar edição
 function cancelarEdicao() {
     document.getElementById("form-editar").style.display = "none";
 }
 
-// Salvar alterações
 async function salvarEdicao(event) {
     event.preventDefault();
 
@@ -61,7 +58,6 @@ async function salvarEdicao(event) {
     }
 }
 
-// Excluir conta
 async function excluirConta() {
     if (!confirm("Tem certeza que deseja excluir sua conta?")) return;
 
