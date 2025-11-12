@@ -9,7 +9,6 @@ if (!$conexao) {
     exit;
 }
 
-// ⚠️ Aqui trocamos 'user_id' para 'usuario_id'
 $userId = isset($_SESSION['usuario_id']) ? intval($_SESSION['usuario_id']) : 0;
 
 if ($userId <= 0) {
