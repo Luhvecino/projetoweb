@@ -31,7 +31,6 @@ $result = mysqli_stmt_get_result($stmt);
 $row = mysqli_fetch_assoc($result);
 
 if ($row) {
-    // ✅ Salva na sessão com os nomes corretos (iguais em todo o projeto)
     $_SESSION['usuario_id'] = $row['id'];
     $_SESSION['usuario_role'] = isset($row['role']) ? $row['role'] : 1;
 
