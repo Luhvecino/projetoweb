@@ -3,20 +3,27 @@ session_start();
 header('Content-Type: application/json; charset=utf-8');
 
 $conexao = mysqli_connect("localhost", "root", "", "projetoweb");
-if(!$conexao){
+
+if (!$conexao) {
     echo json_encode(["success" => false, "message" => "Conexão falhou: " . mysqli_connect_error()]);
     exit;
 }
 
-$userId = isset($_SESSION['user_id']) ? intval($_SESSION['user_id']) : 0;
+// ⚠️ Aqui trocamos 'user_id' para 'usuario_id'
+$userId = isset($_SESSION['usuario_id']) ? intval($_SESSION['usuario_id']) : 0;
+
 if ($userId <= 0) {
-    echo json_encode(["success" => false, "message" => "Não autenticado"]);
+    echo json_encode(["success" => false, "message" => "Usuário não autenticado."]);
     exit;
 }
 
 $sql = "SELECT id, email, role FROM usuarios WHERE id = ? LIMIT 1";
 $stmt = mysqli_prepare($conexao, $sql);
-if (!$stmt) { echo json_encode(["success"=>false, "message"=>"Erro ao preparar: " . mysqli_error($conexao)]); exit; }
+
+if (!$stmt) {
+    echo json_encode(["success" => false, "message" => "Erro ao preparar statement: " . mysqli_error($conexao)]);
+    exit;
+}
 
 mysqli_stmt_bind_param($stmt, 'i', $userId);
 mysqli_stmt_execute($stmt);
@@ -31,5 +38,4 @@ if ($row) {
 
 mysqli_stmt_close($stmt);
 mysqli_close($conexao);
-
 ?>
