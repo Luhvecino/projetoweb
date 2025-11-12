@@ -1,4 +1,3 @@
-// Função para carregar o CSS dinamicamente
 function carregarCSS() {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
@@ -7,14 +6,11 @@ function carregarCSS() {
     document.head.appendChild(link);
 }
 
-// Chame esta função no início do seu script
 carregarCSS();
 
 async function pesquisar() {
-    // Obtém o valor do input de pesquisa
     const inputPesquisa = document.getElementById('inputPesquisar').value;
     
-    // Se o input estiver vazio, busca todos os usuários
     const url = inputPesquisa 
         ? `../php/usuarioControle/listarUsuario.php?email=${encodeURIComponent(inputPesquisa)}`
         : "../php/usuarioControle/listarUsuario.php";
@@ -24,14 +20,11 @@ async function pesquisar() {
             method: "GET"
         });
         
-        // pego a resposta do php
         var resultado = await promise.json();
 
         const tbody = document.querySelector('#tabelaUsuario tbody');
-        // Limpa o corpo da tabela (mantém o thead)
         tbody.innerHTML = '';
 
-        // Se não encontrar resultados
         if (resultado.length === 0) {
             const novaLinha = tbody.insertRow(-1);
             const colunaMensagem = novaLinha.insertCell(0);
@@ -103,11 +96,9 @@ function editar(button) {
     const row = button.closest('tr');
     const id = row.dataset.id;
 
-    // Evita múltiplas edições simultâneas na mesma linha
     if (row.dataset.editing === '1') return;
     row.dataset.editing = '1';
 
-    // Guarda valores originais para possível cancelamento
     const original = {
         email: row.cells[1].textContent,
         senha: row.cells[2].textContent
@@ -115,11 +106,9 @@ function editar(button) {
 
     row._original = original;
 
-    // Substitui as células por inputs
     row.cells[1].innerHTML = `<input class="input" type="email" value="${escapeHtml(original.email)}">`;
     row.cells[2].innerHTML = `<input class="input" type="text" value="${escapeHtml(original.senha)}">`;
 
-    // Substitui ações por Salvar / Cancelar
     row.cells[3].innerHTML = `
         <div class="button-box">
             <button class="btn-salvar" type="button" onclick="salvarEdicao(this, ${id})">Salvar</button>
@@ -133,7 +122,6 @@ async function salvarEdicao(button, idUsuario) {
     const email = row.cells[1].querySelector('input').value.trim();
     const senha = row.cells[2].querySelector('input').value;
 
-    // Validação básica (pode ser expandida)
     if (!email) {
         alert('email é obrigatório.');
         return;
@@ -152,7 +140,6 @@ async function salvarEdicao(button, idUsuario) {
 
         const resultado = await response.json();
         if (resultado.success) {
-            // Atualiza a linha com os novos valores
             row.cells[1].textContent = email;
             row.cells[2].textContent = senha;
 
@@ -192,7 +179,6 @@ function cancelarEdicao(button) {
     row.dataset.editing = '0';
 }
 
-// Pequena função para escapar valores ao inserir em value
 function escapeHtml(str) {
     if (!str) return '';
     return String(str)
