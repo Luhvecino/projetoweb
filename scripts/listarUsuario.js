@@ -3,11 +3,9 @@ async function pesquisar() {
     var promise = await fetch("../php/usuarioControle/listarUsuario.php", {
         method: "GET"
     });
-    // pego a resposta do php
     var resultado = await promise.json();
 
     const tbody = document.querySelector('#tabelaUsuario tbody');
-    // Limpa o corpo da tabela (mantém o thead)
     tbody.innerHTML = '';
 
     resultado.forEach(usuarios => {
@@ -65,22 +63,18 @@ function editar(button) {
     const row = button.closest('tr');
     const id = row.dataset.id;
 
-    // Evita múltiplas edições simultâneas na mesma linha
     if (row.dataset.editing === '1') return;
     row.dataset.editing = '1';
 
-    // Guarda valores originais para possível cancelamento
     const original = {
         email: row.cells[1].textContent,
         senha: row.cells[2].textContent
     };
     row._original = original;
 
-    // Substitui as células por inputs
     row.cells[1].innerHTML = `<input type="email" value="${escapeHtml(original.email)}">`;
     row.cells[2].innerHTML = `<input type="text" value="${escapeHtml(original.senha)}">`;
 
-    // Substitui ações por Salvar / Cancelar
     row.cells[3].innerHTML = `
         <button type="button" onclick="salvarEdicao(this, ${id})">Salvar</button>
         <button type="button" onclick="cancelarEdicao(this)">Cancelar</button>
@@ -92,7 +86,6 @@ async function salvarEdicao(button, idUsuario) {
     const email = row.cells[1].querySelector('input').value.trim();
     const senha = row.cells[2].querySelector('input').value;
 
-    // Validação básica (pode ser expandida)
     if (!email) {
         alert('email é obrigatório.');
         return;
@@ -147,7 +140,6 @@ function cancelarEdicao(button) {
     row.dataset.editing = '0';
 }
 
-// Pequena função para escapar valores ao inserir em value
 function escapeHtml(str) {
     if (!str) return '';
     return String(str)
