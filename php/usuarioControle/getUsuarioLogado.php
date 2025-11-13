@@ -2,7 +2,7 @@
 session_start();
 header('Content-Type: application/json; charset=utf-8');
 
-$conexao = mysqli_connect("localhost", "root", "", "projetoweb");
+$conexao = mysqli_connect("localhost", "root", "PUC@1234", "projetoweb");
 
 if (!$conexao) {
     echo json_encode(["success" => false, "message" => "Conexão falhou: " . mysqli_connect_error()]);
@@ -16,7 +16,7 @@ if ($userId <= 0) {
     exit;
 }
 
-$sql = "SELECT id, email, role FROM usuarios WHERE id = ? LIMIT 1";
+$sql = "SELECT id, email, senha, role FROM usuarios WHERE id = ? LIMIT 1";
 $stmt = mysqli_prepare($conexao, $sql);
 
 if (!$stmt) {

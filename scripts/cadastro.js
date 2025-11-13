@@ -1,27 +1,38 @@
-async function validarFormulario(){                
-var inputEmail = document.getElementById("email");
-var inputSenha = document.getElementById("senha");
-var inputRepetirSenha = document.getElementById("repetirsenha");
-var labelMensagens = document.getElementById("massage");
+document.getElementById("submit").addEventListener ("click",async function validarFormulario(e){  
+    e.preventDefault()  
+    var inputEmail = document.getElementById("email");
+    var inputSenha = document.getElementById("senha");
+    var inputRepetirSenha = document.getElementById("repetirsenha");
+    var labelMensagens = document.getElementById("massage");
 
-if(inputEmail.value == '' || inputSenha.value == '' || inputRepetirSenha.value == ''){
-    labelMensagens.innerHTML = 'os campos precisam ser preenchidos';
-    return;
-}else{
-    labelMensagens.innerHTML = "";
-}
+    if(inputEmail.value == '' || inputSenha.value == '' || inputRepetirSenha.value == ''){
+        labelMensagens.innerHTML = 'os campos precisam ser preenchidos';
+        return;
 
-//pegar os dados do formulário
-var form = document.getElementById("formCadastro");
-var dados = new FormData(form);
+    }else if(!inputEmail.value.includes("@")){
+        labelMensagens.innerHTML = 'Digite um email valido!';
+        return;
+    }else{
+        labelMensagens.innerHTML = "";
+    }
 
-var promise = await fetch('../php/usuarioControle/salvarUsuario.php', {
-    method: 'POST',
-    body: dados
-});
+    //pegar os dados do formulário
+    var form = document.getElementById("formCadastro");
+    var dados = new FormData(form);
+    console.log(dados)
+        
+    var promise = await fetch('../php/usuarioControle/salvarUsuario.php', {
+        method: 'POST',
+        body: dados
+    });
+    try{
+        var resultado = await promise.json();
+        window.location.href = "login.html"
+    }catch(err){
+        alert("Usuario ja cadastrado")
+    }
+    
 
-var resultado = await promise.json();
-console.log(resultado);
-
-window.location.href = "login.html"
-}
+    
+    }
+)

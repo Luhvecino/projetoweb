@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 session_start();
 
-$conexao = mysqli_connect("localhost", "root", "", "projetoweb");
+$conexao = mysqli_connect("localhost", "root", "PUC@1234", "projetoweb");
 
 if (mysqli_connect_errno()) {
     echo json_encode(["success" => false, "message" => "Erro de conexão: " . mysqli_connect_error()]);
@@ -14,7 +14,7 @@ if (!isset($_SESSION['usuario_id'])) {
     exit;
 }
 
-$id = $_SESSION['usuario_id'];
+$id = $_POST["id"];
 
 $sql = "DELETE FROM usuarios WHERE id = ?";
 $stmt = mysqli_prepare($conexao, $sql);
@@ -27,7 +27,6 @@ if (!$stmt) {
 mysqli_stmt_bind_param($stmt, "i", $id);
 
 if (mysqli_stmt_execute($stmt)) {
-    session_destroy();
     echo json_encode(["success" => true, "message" => "Conta excluída com sucesso."]);
 } else {
     echo json_encode(["success" => false, "message" => "Erro ao excluir conta."]);

@@ -2,7 +2,7 @@ let livros = [];
 let editIndex = null; // will store id of book being edited (or null)
 
 // on load, fetch books from server
-
+console.log("aaaaa")
 fetchBooks();
 // hide Gerenciar link by default (in case HTML not updated)
 const liGerenciar = document.getElementById('liGerenciar');
@@ -282,7 +282,7 @@ async function verificaRole(idUsuario) {
 
     } catch (error) {
         console.error('Erro:', error);
-        alert('Erro ao excluir usuário');
+        alert('Erro ao excluir usuario');
     }    
 }
 

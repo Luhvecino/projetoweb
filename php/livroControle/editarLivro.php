@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
-$conexao = mysqli_connect("localhost", "root", "", "projetoweb");
+$conexao = mysqli_connect("localhost", "root", "PUC@1234", "projetoweb");
 
 $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
 $titulo = isset($_POST['titulo']) ? trim($_POST['titulo']) : '';

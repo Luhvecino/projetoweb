@@ -1,8 +1,9 @@
 <html>
 <head>
+    <meta charset="UTF-8" />  
     <link rel="stylesheet" type="text/css" href="../styles/cadastroStyle.css">
     <title>Cadastro</title>
-    <script src="../scripts/cadastro.js"></script>
+    
 </head>
 
 <body>
@@ -11,17 +12,17 @@
         <div class="cadastro_tittle">     
             
             <form id="formCadastro" class="cadastro_form" >            
-                <input id="email" name="email" class="input" type="email" placeholder="E-mail"/>        
-                <input id="senha" name="senha" class="input" type="password" placeholder="Senha"/>            
-                <input id="repetirsenha" name="repetirsenha" class="input" type="password" placeholder="Confirmar Senha"/>            
+                <input id="email" name="email" class="input" type="email" placeholder="E-mail" required/>        
+                <input id="senha" name="senha" class="input" type="password" placeholder="Senha" required/>            
+                <input id="repetirsenha" name="repetirsenha" class="input" type="password" placeholder="Confirmar Senha" required/>            
                 <label id="massage" name="massage" type="text" class="cadastro_message"></label>                        
                 <div>
-                    <button type="button" class="cadastro_button_salvar"
-                        onclick="validarFormulario()">salvar</button>
+                    <input id="submit" type="submit" class="cadastro_button_salvar"/>
                 </div>        
                 <!-- <img src="image/image.png"/> -->
             </form>
         </div>
     </div>
+    <script src="../scripts/cadastro.js"></script>
 </body>
 </html>

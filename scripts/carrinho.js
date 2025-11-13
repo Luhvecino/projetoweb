@@ -23,6 +23,7 @@ async function fetchCartBooks(){
         const json = await res.json();
         
         if(json.success !== true){
+            console.log("aaaaaaaaaaaaaaaaaaaaaa")
             window.location.href = "login.html"
         }
 

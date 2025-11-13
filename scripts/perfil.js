@@ -1,7 +1,7 @@
 // carrega dad do usuário logado
 window.onload = async function() {
     try {
-        const response = await fetch("../php/getUsuarioLogado.php");
+        const response = await fetch("../php/usuarioControle/getUsuarioLogado.php");
         const data = await response.json();
 
         if (!data.success || !data.user) {
@@ -39,7 +39,7 @@ async function salvarEdicao(event) {
         formData.append("email", email);
         formData.append("senha", senha);
 
-        const response = await fetch("../php/editarUsuario.php", {
+        const response = await fetch("../php/usuarioControle/editarUsuario.php", {
             method: "POST",
             body: formData
         });
@@ -69,7 +69,7 @@ async function excluirConta() {
         const result = await response.json();
 
         if (result.success) {
-            alert("Conta excluída com sucesso!");
+            alert("Conta excluida com sucesso!");
             window.location.href = "login.html";
         } else {
             alert(result.message || "Erro ao excluir conta.");

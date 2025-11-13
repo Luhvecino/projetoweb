@@ -1,6 +1,6 @@
 <?php
 
-$conexao = mysqli_connect("localhost", "root", "", "projetoweb");
+$conexao = mysqli_connect("localhost", "root", "PUC@1234", "projetoweb");
 
 if(!$conexao){
     die("conexão falhou: " . mysqli_connect_error());
@@ -22,7 +22,7 @@ if(mysqli_stmt_execute($stmt)){
 
 $resultado["email"] = $email;
 $resultado["senha"] = $senha;
-
+$resultado["success"] = true;
 echo json_encode($resultado);
 
 mysqli_stmt_close($stmt);

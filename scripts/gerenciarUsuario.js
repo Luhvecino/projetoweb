@@ -123,7 +123,7 @@ async function salvarEdicao(button, idUsuario) {
     const senha = row.cells[2].querySelector('input').value;
 
     if (!email) {
-        alert('email é obrigatório.');
+        alert('email e obrigatorio.');
         return;
     }
 

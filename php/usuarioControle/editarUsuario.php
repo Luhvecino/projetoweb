@@ -1,8 +1,11 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 header('Content-Type: application/json; charset=utf-8');
 session_start();
 
-$conexao = mysqli_connect("localhost", "root", "", "projetoweb");
+$conexao = mysqli_connect("localhost", "root", "PUC@1234", "projetoweb");
 
 if (!$conexao) {
     echo json_encode(["success" => false, "message" => "Conexão falhou: " . mysqli_connect_error()]);
@@ -13,8 +16,12 @@ if (!isset($_SESSION['usuario_id'])) {
     echo json_encode(["success" => false, "message" => "Usuário não está logado."]);
     exit;
 }
+if(isset($_POST["id"])){
+    $id = $_POST["id"];
+}else{
+    $id = $_SESSION["usuario_id"];
+}
 
-$id = $_SESSION['usuario_id'];
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 $senha = isset($_POST['senha']) ? $_POST['senha'] : '';
 

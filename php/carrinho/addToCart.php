@@ -5,13 +5,13 @@ error_reporting(E_ALL);
 session_start();
 header('Content-Type: application/json; charset=utf-8');
 
-$conexao = mysqli_connect("localhost", "root", "", "projetoweb");
+$conexao = mysqli_connect("localhost", "root", "PUC@1234", "projetoweb");
 if(!$conexao){
     echo json_encode(["success" => false, "message" => "Conexão falhou: " . mysqli_connect_error()]);
     exit;
 }
 
-$userId = isset($_SESSION['user_id']) ? intval($_SESSION['user_id']) : 0;
+$userId = isset($_SESSION['usuario_id']) ? intval($_SESSION['usuario_id']) : 0;
 if ($userId <= 0) {
     echo json_encode(["success" => false, "message" => "Não autenticado"]);
     exit;
