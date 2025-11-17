@@ -62,7 +62,7 @@ async function excluirConta() {
     if (!confirm("Tem certeza que deseja excluir sua conta?")) return;
 
     try {
-        const response = await fetch("../php/excluirUsuario.php", {
+        const response = await fetch("../php/usuarioControle/excluirUsuarioLogado.php", {
             method: "POST"
         });
 
