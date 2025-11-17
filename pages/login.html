@@ -2,6 +2,7 @@
     <head>
         <meta charset="UTF-8" />  
         <link rel="stylesheet" type="text/css" href="../styles/loginStyle.css">
+        <link rel="stylesheet" type="text/css" href="../styles/global.css">
         <!-- importando fonte -->
         <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet">
         <script src="../scripts/login.js"></script>
@@ -14,13 +15,14 @@
                 <form class="login_form">
                     <input id="email" type="text" class="input" placeholder="email">   
                     <input id="senha" type="password" class="input" placeholder="senha">
-                    <label id="massage" type="text" class="login_message"></label>
+                
                     <div class="login_button_box">
                         <button type="button" class="login_button" id="btnLogar" onclick="validarFormulario()">Logar</button>
                         <a type="button" class="login_button" id="btnCadastrar" href="cadastro.html" style="text-decoration: none;">Cadastrar</a>                        
                     </div>                    
-                </form>
+                </form> 
             </div>
+            <label id="massage" class="login_message"></label>
         </div>        
     </body>
 </html>
