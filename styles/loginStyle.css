@@ -108,11 +108,13 @@ body {
 .login_message {
     font-family: 'IM Fell English', serif;
     color: #ff0000;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 10px;
-    min-height: 1.2vh;
+    height: 22px;          /* altura fixa: NÃO altera mais layout */
+    line-height: 22px;     /* centraliza o texto verticalmente */
     display: block;
     letter-spacing: 0.5px;
+    text-align: center;    /* (opcional) */
 }
 
 /* responsividade */
