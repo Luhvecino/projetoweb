@@ -8,9 +8,11 @@ document.getElementById("submit").addEventListener ("click",async function valid
     if(inputEmail.value == '' || inputSenha.value == '' || inputRepetirSenha.value == ''){
         labelMensagens.innerHTML = 'os campos precisam ser preenchidos';
         return;
-
     }else if(!inputEmail.value.includes("@")){
         labelMensagens.innerHTML = 'Digite um email valido!';
+        return;
+    }else if(inputSenha.value !== inputRepetirSenha.value){
+        labelMensagens.innerHTML = 'As senhas precisam repetir'
         return;
     }else{
         labelMensagens.innerHTML = "";
@@ -32,8 +34,5 @@ document.getElementById("submit").addEventListener ("click",async function valid
     }catch(err){
         alert("Usuario ja cadastrado")
     }
-    
-
-    
     }
 )
