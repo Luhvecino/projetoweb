@@ -2,7 +2,6 @@
 <head>
     <meta charset="UTF-8" />  
     <link rel="stylesheet" type="text/css" href="../styles/cadastroStyle.css">
-    <link rel="stylesheet" type="text/css" href="../styles/global.css">
     <title>Cadastro</title>
     
 </head>
@@ -18,8 +17,11 @@
                 <input id="repetirsenha" name="repetirsenha" class="input" type="password" placeholder="Confirmar Senha" required/>            
                 <label id="massage" name="massage" type="text" class="cadastro_message"></label>                        
                 <div>
-                    <input id="submit" type="submit" class="cadastro_button_salvar"/>
-                </div>        
+                    <button id="submit" type="button" class="cadastro_button_salvar"> Cadastrar </button>
+                </div>    
+                <div>
+                    <button id="submitVoltar" type="button" class="cadastro_button_salvar" onclick="window.location.href='login.html'">Voltar</button>
+                </div>      
                 <!-- <img src="image/image.png"/> -->
             </form>
         </div>

@@ -1,33 +1,44 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
     <head>    
         <meta charset="UTF-8" />
         <link rel="stylesheet" type="text/css" href="../styles/gerenciarStyle.css" />
-        <link rel="stylesheet" type="text/css" href="../styles/global.css">
-    </head>
-
-    <script src="../scripts/gerenciarUsuario.js"></script>
-
+        <link rel="stylesheet" type="text/css" href="../styles/dashboardStyle.css" />
     <body>
-        <div>
-            <div class="conteudo">
-                <h3>Gerenciar Usuários</h3>
-                <button class="btn-pesquisar" onclick="pesquisar()">Buscar</button>
-                <input class="input" style="width: 15rem;" type="text" id="inputPesquisar" placeholder="Digite o email do usuário" />
-                <table id="tabelaUsuario" class="celula-box" >
-                    <thead>
-                        <tr>
-                            <th id="celula" class="celula">ID</th>
-                            <th id="celula" class="celula">Email</th>
-                            <th id="celula" class="celula">Senha</th>
-                            <th id="celula" class="celula">Ações</th>
-                        </tr>
-                    </thead>
+        <header class="header">
+            <h1>📚 Library</h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="perfil.html" style="text-decoration:none; color:inherit;">Perfil</a></li>
+                    <li><a href="carrinho.html" style="text-decoration:none; color:inherit;">Carrinho</a></li>
+                    <li><a href="dashboard.html" style="text-decoration:none; color:inherit;">Livros</a></li>
+                    <li id="liGerenciar" style="display:none"><a id="idGerenciar" href="gerenciar.html" style="text-decoration:none; color:inherit;">Gerenciar</a></li>
+                    <li><a href="login.html" style="text-decoration:none; color:inherit;">Sair</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main class="conteudo" style="margin-top: 100px;">
+            <h2>Gerenciar usuários</h2>
+            <button class="btn-pesquisar" onclick="pesquisar()">Buscar</button>
+            <input class="input" style="width: 15rem;" type="text" id="inputPesquisar" placeholder="Digite o email do usuário" />
+            <table id="tabelaUsuario" class="celula-box" >
+                <thead>
+                    <tr>
+                        <th id="celula" class="celula">ID</th>
+                        <th id="celula" class="celula">Email</th>
+                        <th id="celula" class="celula">Senha</th>
+                        <th id="celula" class="celula">Ações</th>
+                    </tr>
+                </thead>
 
-                    <tbody>
-                        <!-- Linhas serão inseridas dinamicamente pelo gerenciarUsuario.js -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                <tbody>
+                    <!-- Linhas serão inseridas dinamicamente pelo gerenciarUsuario.js -->
+                </tbody>
+            </table>
+        </main>
+        <script src="../scripts/gerenciarUsuario.js"></script>
+        <script src="../scripts/dashboard.js"></script>
+        
     </body>
 </html>

@@ -89,7 +89,7 @@ body {
 }
 
 
-.cadastro_button:hover, .login_button:focus {
+.cadastro_button_salvar:hover, .cadastro_button_salvar:focus {
     border: 2.5px solid #bfa76a;
     background: linear-gradient(135deg, #f5ecd7 90%, #e2c785 100%);
     box-shadow: 0 0 8px #e2c785, 0 2px 8px rgba(60, 40, 10, 0.10) inset;  

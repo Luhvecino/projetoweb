@@ -27,6 +27,7 @@ document.getElementById("submit").addEventListener ("click",async function valid
     });
     try{
         var resultado = await promise.json();
+        alert("Cadastro realizado com sucesso")
         window.location.href = "login.html"
     }catch(err){
         alert("Usuario ja cadastrado")

@@ -45,7 +45,7 @@ body {
 
 /* Container principal responsivo */
 .conteudo {
-  padding: 20px;
+  padding: 40px 60px;
   box-sizing: border-box;
   width: 100%;
   max-width: 1200px;
